@@ -1,0 +1,14 @@
+{
+    "autoload": {
+      "psr-4": {
+        "Src\\": "Src/"
+      },
+      "files":[
+        "Src/Config.php"]
+    },
+    "require": {
+        "coffeecode/router": "^1.0",
+        "doctrine/orm": "^2.10",
+        "symfony/cache": "^5.3"
+    }
+}
