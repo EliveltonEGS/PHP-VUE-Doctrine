@@ -1,8 +1,6 @@
-:shipit:
-
 # MVC - PHP AND VUE SIMPLE CRUD
 
-> This project is a simple demonstration of how to create a crud with PHP and VUEJS
+> :trophy: This project is a simple demonstration of how to create a crud with PHP and VUEJS
 
 * Start project with command in below:
 
