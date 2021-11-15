@@ -1,5 +1,11 @@
 # MVC - PHP AND VUE SIMPLE CRUD
 
+* Start project with command in below:
+
+```
+composer update
+```
+
 * PHP
 
 ```
