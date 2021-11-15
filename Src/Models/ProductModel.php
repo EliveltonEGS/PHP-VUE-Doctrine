@@ -38,12 +38,21 @@ class ProductModel extends Model {
     public function findId($id) {
         
         $em = $this->entityManager();
+
         $sql = $em->createQueryBuilder();
         $sql->select("p")->from(Product::class, "p")->where("p.id = :id");
         $sql->setParameter("id", $id);
         $query = $sql->getQuery();
-        $product = $query->getArrayResult();
-        return $product;
+        $product = $query->getResult();
+        
+        foreach ($product as $item) {
+            
+            $result = ["id" => $item->getId(), "name" => $item->getName(), "price" => $item->getPrice()];
+
+        }
+
+        return $result;
+
     }
 
     public function update($id, $obj) {
@@ -53,6 +62,7 @@ class ProductModel extends Model {
         $this->product->setName($obj->name);
         $this->product->setPrice($obj->price);
         $em->flush();
+        echo json_encode("Update with success");
 
     }
 
@@ -62,6 +72,7 @@ class ProductModel extends Model {
         $this->product = $em->getReference(Product::class, $id);
         $em->remove($this->product);
         $em->flush();
+        echo json_encode("Delete with success");
 
     }
 
