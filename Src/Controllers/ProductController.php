@@ -54,4 +54,10 @@ class ProductController
         $this->productModel->update($id, $obj);
 
     }
+
+    public function delete($id) {
+
+        $this->productModel->delete($id);
+
+    }
 }

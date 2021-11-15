@@ -31,6 +31,7 @@ class ProductModel extends Model {
         $this->product->setPrice($data->price);
         $em->persist($this->product);
         $em->flush();
+        echo json_encode("Create with success");
         
     }
 
@@ -51,6 +52,15 @@ class ProductModel extends Model {
         $this->product = $em->getRepository(Product::class)->find($id);
         $this->product->setName($obj->name);
         $this->product->setPrice($obj->price);
+        $em->flush();
+
+    }
+
+    public function delete($id) {
+
+        $em = $this->entityManager();
+        $this->product = $em->getReference(Product::class, $id);
+        $em->remove($this->product);
         $em->flush();
 
     }
